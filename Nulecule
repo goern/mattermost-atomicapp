@@ -27,7 +27,7 @@ graph:
         default: mattermost_test
     artifacts:
       docker:
-        - file://artifacts/docker/database-run
+        - file://artifacts/docker/db-run
   - name: mattermost
     params:
     - name: MYSQL_ALLOW_EMPTY_PASSWORD
