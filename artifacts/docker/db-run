@@ -1,0 +1,6 @@
+docker run --detach --name mattermost-db \
+ -e MYSQL_ALLOW_EMPTY_PASSWORD=true \
+ -e MYSQL_USER=mmuser \
+ -e MYSQL_PASSWORD=mostest \
+ -e MYSQL_DATABASE=mattermost_test \
+ centos/mariadb

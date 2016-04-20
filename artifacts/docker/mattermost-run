@@ -1,0 +1,4 @@
+docker run --detach --name mattermost \
+ --publish 8065:8065 \
+ --link mattermost-db:mysql
+ goern/mattermost:2.2.0

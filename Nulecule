@@ -1,0 +1,47 @@
+---
+specversion: 0.0.2
+id: mattermost-atomicapp
+
+metadata:
+  name: Mattermost
+  appversion: 2.2.0
+  description: Mattermost is an open source, self-hosted Slack-alternative
+params:
+    - name: provider
+      description: The specified default provider.
+      default: docker
+graph:
+  - name: mattermost-db
+    params:
+      - name: MYSQL_ALLOW_EMPTY_PASSWORD
+        description: allow a mysql user to have an empty password
+        default: true
+      - name: MYSQL_USER
+        description: username used to connect from mattermost to database
+        default: mmuser
+      - name: MYSQL_PASSWORD
+        description: password of that user
+        default: mostest
+      - name: MYSQL_DATABASE
+        description: name of the database to be used
+        default: mattermost_test
+    artifacts:
+      docker:
+        - file://artifacts/docker/database-run
+  - name: mattermost
+    params:
+    - name: MYSQL_ALLOW_EMPTY_PASSWORD
+      description: allow a mysql user to have an empty password
+      default: true
+    - name: MYSQL_USER
+      description: username used to connect from mattermost to database
+      default: mmuser
+    - name: MYSQL_PASSWORD
+      description: password of that user
+      default: mostest
+    - name: MYSQL_DATABASE
+      description: name of the database to be used
+      default: mattermost_test
+    artifacts:
+      docker:
+        - file://artifacts/docker/mattermost-run
