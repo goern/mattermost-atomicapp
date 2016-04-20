@@ -20,7 +20,7 @@ LABEL Component="mattermost" \
 
 # Labels required by the Nulecule Specification
 LABEL io.projectatomic.nulecule.specversion="0.0.2" \
-      io.projectatomic.nulecule.providers="kubernetes,openshift,docker"
+      io.projectatomic.nulecule.providers="docker"
 
 ADD /Nulecule /Dockerfile README.md LICENSE /application-entity/
 ADD /artifacts /application-entity/artifacts
